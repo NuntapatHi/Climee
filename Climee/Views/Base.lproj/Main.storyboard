@@ -258,20 +258,7 @@
                                     </stackView>
                                     <view clipsSubviews="YES" alpha="0.60000002384185791" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qfo-qD-D0k">
                                         <rect key="frame" x="0.0" y="272" width="382" height="128"/>
-                                        <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="facemask.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="NZP-rY-fLq">
-                                                <rect key="frame" x="8" y="10.5" width="125" height="107"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="125" id="C6y-9F-TPH"/>
-                                                </constraints>
-                                            </imageView>
-                                        </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="NZP-rY-fLq" secondAttribute="bottom" constant="8" id="TBZ-y4-MvY"/>
-                                            <constraint firstItem="NZP-rY-fLq" firstAttribute="leading" secondItem="qfo-qD-D0k" secondAttribute="leading" constant="8" id="edT-9p-sQr"/>
-                                            <constraint firstItem="NZP-rY-fLq" firstAttribute="top" secondItem="qfo-qD-D0k" secondAttribute="top" constant="8" id="wQN-uf-htc"/>
-                                        </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -301,6 +288,19 @@
                             <constraint firstItem="XqL-0j-ZbB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="vNe-Cd-btd"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="cityNameLabel" destination="7RH-Iu-dwn" id="PhS-AB-Ua4"/>
+                        <outlet property="cloudinessLabel" destination="2Vd-1m-1hR" id="EKw-6C-jsm"/>
+                        <outlet property="descriptionLabel" destination="frR-27-wdk" id="dFo-QL-V6N"/>
+                        <outlet property="humidityLabel" destination="S4B-Dx-C85" id="PWR-4c-g1b"/>
+                        <outlet property="locationImage" destination="fsh-zQ-7fv" id="pwE-R4-NWG"/>
+                        <outlet property="minMaxTemperatureLabel" destination="wuG-dg-ddn" id="WIJ-Kw-Jon"/>
+                        <outlet property="searchBar" destination="a2c-nf-mvr" id="6UJ-Wz-Ky3"/>
+                        <outlet property="temperatureLabel" destination="2rI-OO-Vpb" id="ynW-EM-WQN"/>
+                        <outlet property="weatherImage" destination="uhG-rQ-QIx" id="pnb-rY-1Eq"/>
+                        <outlet property="windDirectionLabel" destination="qYH-rc-j7k" id="k10-GF-ioj"/>
+                        <outlet property="windSpeedLabel" destination="Ic3-gN-0wL" id="PYs-q8-o3z"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -310,7 +310,6 @@
     <resources>
         <image name="arrow.up.and.down.and.arrow.left.and.right" catalog="system" width="128" height="122"/>
         <image name="drop.fill" catalog="system" width="101" height="128"/>
-        <image name="facemask.fill" catalog="system" width="128" height="67"/>
         <image name="icloud.fill" catalog="system" width="128" height="88"/>
         <image name="location.circle.fill" catalog="system" width="128" height="121"/>
         <image name="sun.min.fill" catalog="system" width="128" height="121"/>
