@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		302B28B941C7C07239F71C40 /* Pods_Climee.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E0E771F2C9A98EA695C5A6E /* Pods_Climee.framework */; };
 		879A850328AB8043003957A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879A850228AB8043003957A9 /* AppDelegate.swift */; };
 		879A850528AB8043003957A9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879A850428AB8043003957A9 /* SceneDelegate.swift */; };
 		879A850728AB8043003957A9 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879A850628AB8043003957A9 /* WeatherViewController.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		53C92F2C3938931ACB8BCCA6 /* Pods-Climee.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Climee.release.xcconfig"; path = "Target Support Files/Pods-Climee/Pods-Climee.release.xcconfig"; sourceTree = "<group>"; };
 		879A84FF28AB8043003957A9 /* Climee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Climee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		879A850228AB8043003957A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		879A850428AB8043003957A9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -32,6 +34,8 @@
 		879A851D28ABDBE4003957A9 /* WeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
 		879A851F28ABE83B003957A9 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
 		87B6E37228AE3D320084D5B3 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		8E0E771F2C9A98EA695C5A6E /* Pods_Climee.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Climee.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FBF3A72E4B9B1ED3566002D1 /* Pods-Climee.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Climee.debug.xcconfig"; path = "Target Support Files/Pods-Climee/Pods-Climee.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,17 +43,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				302B28B941C7C07239F71C40 /* Pods_Climee.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1416B6D282A9DF82E397D6A8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8E0E771F2C9A98EA695C5A6E /* Pods_Climee.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4690E3C2D7E390A0A049C2A5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FBF3A72E4B9B1ED3566002D1 /* Pods-Climee.debug.xcconfig */,
+				53C92F2C3938931ACB8BCCA6 /* Pods-Climee.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		879A84F628AB8043003957A9 = {
 			isa = PBXGroup;
 			children = (
 				879A850128AB8043003957A9 /* Climee */,
 				879A850028AB8043003957A9 /* Products */,
+				4690E3C2D7E390A0A049C2A5 /* Pods */,
+				1416B6D282A9DF82E397D6A8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -118,6 +143,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 879A851328AB8044003957A9 /* Build configuration list for PBXNativeTarget "Climee" */;
 			buildPhases = (
+				1F400E909817F2487BCD8639 /* [CP] Check Pods Manifest.lock */,
 				879A84FB28AB8043003957A9 /* Sources */,
 				879A84FC28AB8043003957A9 /* Frameworks */,
 				879A84FD28AB8043003957A9 /* Resources */,
@@ -176,6 +202,31 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1F400E909817F2487BCD8639 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Climee-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		879A84FB28AB8043003957A9 /* Sources */ = {
@@ -330,6 +381,7 @@
 		};
 		879A851428AB8044003957A9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FBF3A72E4B9B1ED3566002D1 /* Pods-Climee.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -358,6 +410,7 @@
 		};
 		879A851528AB8044003957A9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 53C92F2C3938931ACB8BCCA6 /* Pods-Climee.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
