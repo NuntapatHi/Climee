@@ -12,44 +12,56 @@ protocol WeatherManagerDelegate{
     func weatherWithError(_ weatherManager: WeatherManager, error: Error)
 }
 
+enum CustomError: Error{
+    case invalidURL
+    case invalidData
+}
+
 struct WeatherManager{
     
     var delegate: WeatherManagerDelegate?
     
     let openWeatherURL = "https://api.openweathermap.org/data/2.5/weather?&units=metric&"
     
-    let openWeatherImgURL = "http://openweathermap.org/img/wn/"
     
     let apikey = "addac5760d2063966c0f5102171286c7"
     
     func weatherFatch(cityName: String){
         var urlString = "\(openWeatherURL)appid=\(apikey)&q=\(cityName)"
-        performRequest(with: urlString)
-    }
-    
-    func performRequest(with urlString: String){
-        if let url = URL(string: urlString){
-            let session = URLSession(configuration: .default)
-            let task = session.dataTask(with: url) { data, response, error in
-                if error != nil{
-                    delegate?.weatherWithError(self, error: error!)
-                    return
-                }
-                if let safeData = data{
-                    parseJSON(safeData)
-                }
+        request(urlString: urlString, expecting: WeatherData.self) { result in
+            switch result {
+            case .success(let weatherData):
+                delegate?.weatherDidUpdate(self, weatherData: weatherData)
+            case .failure(let error):
+                delegate?.weatherWithError(self, error: error)
             }
-            task.resume()
         }
     }
     
-    func parseJSON(_ weatherData: Data){
-        let decoder = JSONDecoder()
-        do{
-            let decodedData = try decoder.decode(WeatherData.self, from: weatherData)
-            delegate?.weatherDidUpdate(self, weatherData: decodedData)
-        } catch{
-            delegate?.weatherWithError(self, error: error)
+    
+    func request<T: Codable>(urlString: String, expecting: T.Type, completions: @escaping (Result<T, Error>) -> Void){
+        guard let url = URL(string: urlString) else {
+            completions(.failure(CustomError.invalidURL))
+            return
         }
+        
+        let session = URLSession(configuration: .default)
+        let task = session.dataTask(with: url) { data, response, error in
+            guard let data = data else {
+                if let error = error {
+                    completions(.failure(error))
+                } else {
+                    completions(.failure(CustomError.invalidData))
+                }
+                return
+            }
+            do {
+                let result = try JSONDecoder().decode(expecting, from: data)
+                completions(.success(result))
+            } catch {
+                completions(.failure(error))
+            }
+        }
+        task.resume()
     }
 }
