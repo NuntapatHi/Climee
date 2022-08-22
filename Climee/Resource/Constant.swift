@@ -9,5 +9,5 @@ import Foundation
 
 struct K{
     static let weatherURL = "https://api.openweathermap.org/data/2.5/weather?&units=metric&"
-    static let weatherImgURL = "http://openweathermap.org/img/wn/"
+    static let weatherImgURL = "https://openweathermap.org/img/wn/"
 }

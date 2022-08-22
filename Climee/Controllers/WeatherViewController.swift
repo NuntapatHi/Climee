@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class WeatherViewController: UIViewController {
 
@@ -36,6 +37,7 @@ class WeatherViewController: UIViewController {
 extension WeatherViewController: WeatherManagerDelegate{
     func weatherDidUpdate(_ weatherManager: WeatherManager, weatherData: WeatherData) {
         let weatherModel = WeatherModel(weatherData: weatherData)
+        
         DispatchQueue.main.async {
             self.cityNameLabel.text = weatherData.name
             self.temperatureLabel.text = "\(weatherData.main.temp)°"
@@ -45,11 +47,11 @@ extension WeatherViewController: WeatherManagerDelegate{
             self.humidityLabel.text = "\(weatherData.main.humidity) %"
             self.windSpeedLabel.text = "\(weatherData.wind.speed) m/s"
             self.windDirectionLabel.text = weatherModel.windDirection
-            
-            self.weatherImage.loadWithURL(urlString: weatherModel.imgUrlString)
+            self.weatherImage.kf.setImage(with: URL(string: weatherModel.imgUrlString), options: [.transition(.fade(1))])
         }
     }
     func weatherWithError(_ weatherManager: WeatherManager, error: Error) {
         print(error)
     }
 }
+
