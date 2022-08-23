@@ -34,7 +34,7 @@ struct Main: Codable{
     let temp_min: Float
     let temp_max:Float
     let humidity: Int
-    //    let pressure: Int
+    let pressure: Int
 }
 struct Wind: Codable{
     let speed: Float

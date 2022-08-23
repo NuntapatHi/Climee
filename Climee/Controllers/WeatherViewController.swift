@@ -36,22 +36,23 @@ class WeatherViewController: UIViewController {
 
 extension WeatherViewController: WeatherManagerDelegate{
     func weatherDidUpdate(_ weatherManager: WeatherManager, weatherData: WeatherData) {
-        let weatherModel = WeatherModel(weatherData: weatherData)
-        
-        DispatchQueue.main.async {
-            self.cityNameLabel.text = weatherData.name
-            self.temperatureLabel.text = "\(weatherData.main.temp)°"
-            self.minMaxTemperatureLabel.text = "H : \(weatherData.main.temp_max)° L : \(weatherData.main.temp_min)°"
-            self.descriptionLabel.text = weatherData.weather[0].description
-            self.cloudinessLabel.text = "\(weatherData.clouds.all) %"
-            self.humidityLabel.text = "\(weatherData.main.humidity) %"
-            self.windSpeedLabel.text = "\(weatherData.wind.speed) m/s"
-            self.windDirectionLabel.text = weatherModel.windDirection
-            self.weatherImage.kf.setImage(with: URL(string: weatherModel.imgUrlString), options: [.transition(.fade(1))])
+        if let data = weatherData as? WeatherData{
+            weatherManager.airPollutionFatch(lat: data.coord.lat, lon: data.coord.lon)
+            let weatherModel = WeatherModel(weatherData: data)
+            DispatchQueue.main.async {
+                self.cityNameLabel.text = data.name
+                self.temperatureLabel.text = "\(data.main.temp)°"
+                self.minMaxTemperatureLabel.text = "H : \(data.main.temp_max)° L : \(data.main.temp_min)°"
+                self.descriptionLabel.text = data.weather[0].description
+                self.cloudinessLabel.text = "\(data.clouds.all) %"
+                self.humidityLabel.text = "\(data.main.humidity) %"
+                self.windSpeedLabel.text = "\(data.wind.speed) m/s"
+                self.windDirectionLabel.text = weatherModel.windDirection
+                self.weatherImage.kf.setImage(with: URL(string: weatherModel.imgUrlString), options: [.transition(.fade(1))])
+            }
         }
     }
     func weatherWithError(_ weatherManager: WeatherManager, error: Error) {
         print(error)
     }
 }
-

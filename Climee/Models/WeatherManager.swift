@@ -22,16 +22,29 @@ struct WeatherManager{
     var delegate: WeatherManagerDelegate?
     
     let openWeatherURL = "https://api.openweathermap.org/data/2.5/weather?&units=metric&"
-    
-    
+
     let apikey = "addac5760d2063966c0f5102171286c7"
     
     func weatherFatch(cityName: String){
-        var urlString = "\(openWeatherURL)appid=\(apikey)&q=\(cityName)"
+        var urlString = "\(K.weatherURL)appid=\(K.apiKey)&q=\(cityName)"
+        
         request(urlString: urlString, expecting: WeatherData.self) { result in
             switch result {
             case .success(let weatherData):
                 delegate?.weatherDidUpdate(self, weatherData: weatherData)
+            case .failure(let error):
+                delegate?.weatherWithError(self, error: error)
+            }
+        }
+    }
+    
+    func airPollutionFatch(lat: Float, lon: Float){
+        var urlString = "\(K.airPollutionURL)lat=\(lat)&lon=\(lon)&appid=\(K.apiKey)"
+        print(urlString)
+        request(urlString: urlString, expecting: AirPollutionData.self) { result in
+            switch result {
+            case .success(let weatherData):
+                print(result)
             case .failure(let error):
                 delegate?.weatherWithError(self, error: error)
             }
