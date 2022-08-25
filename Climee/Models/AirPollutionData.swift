@@ -29,4 +29,3 @@ struct Components: Codable{
     let pm10: Float
     let nh3: Float
 }
-

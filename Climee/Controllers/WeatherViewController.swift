@@ -35,8 +35,8 @@ class WeatherViewController: UIViewController {
 }
 
 extension WeatherViewController: WeatherManagerDelegate{
-    func weatherDidUpdate(_ weatherManager: WeatherManager, weatherData: WeatherData) {
-        if let data = weatherData as? WeatherData{
+    func weatherDidUpdate<T>(_ weatherManager: WeatherManager, resultData: T) where T : Decodable, T : Encodable {
+        if let data = resultData as? WeatherData{
             weatherManager.airPollutionFatch(lat: data.coord.lat, lon: data.coord.lon)
             let weatherModel = WeatherModel(weatherData: data)
             DispatchQueue.main.async {
@@ -51,7 +51,14 @@ extension WeatherViewController: WeatherManagerDelegate{
                 self.weatherImage.kf.setImage(with: URL(string: weatherModel.imgUrlString), options: [.transition(.fade(1))])
             }
         }
+        
+        if let data = resultData as? AirPollutionData{
+            DispatchQueue.main.async {
+                //waiting for ui design
+            }
+        }
     }
+    
     func weatherWithError(_ weatherManager: WeatherManager, error: Error) {
         print(error)
     }

@@ -76,7 +76,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="zXg-bu-QYB">
                                         <rect key="frame" x="0.0" y="0.0" width="382" height="128"/>
                                         <subviews>
-                                            <view clipsSubviews="YES" alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e1f-VN-lA0">
+                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e1f-VN-lA0">
                                                 <rect key="frame" x="0.0" y="0.0" width="186" height="128"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="V07-YV-Mp7">
@@ -104,7 +104,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="backgroundColor" red="0.81768161669999995" green="1" blue="0.99163756189999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="2Vd-1m-1hR" secondAttribute="trailing" constant="8" id="IDZ-lH-oCr"/>
                                                     <constraint firstItem="2Vd-1m-1hR" firstAttribute="leading" secondItem="e1f-VN-lA0" secondAttribute="leading" constant="8" id="Mbj-m9-ob9"/>
@@ -120,7 +120,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
-                                            <view clipsSubviews="YES" alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0AO-Qd-uiM">
+                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0AO-Qd-uiM">
                                                 <rect key="frame" x="196" y="0.0" width="186" height="128"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="0Tn-5E-Ob7">
@@ -148,7 +148,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="backgroundColor" red="0.81768161669999995" green="1" blue="0.99163756189999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
                                                     <constraint firstItem="0Tn-5E-Ob7" firstAttribute="top" secondItem="0AO-Qd-uiM" secondAttribute="top" constant="8" id="6a9-Nb-MbG"/>
                                                     <constraint firstItem="0Tn-5E-Ob7" firstAttribute="leading" secondItem="0AO-Qd-uiM" secondAttribute="leading" constant="8" id="KWm-Hn-vmv"/>
@@ -168,7 +168,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="inv-MA-GvA">
                                         <rect key="frame" x="0.0" y="136" width="382" height="128"/>
                                         <subviews>
-                                            <view clipsSubviews="YES" alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nCY-QB-usQ">
+                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nCY-QB-usQ">
                                                 <rect key="frame" x="0.0" y="0.0" width="186" height="128"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="nLD-r4-ciM">
@@ -196,7 +196,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="backgroundColor" red="0.81768161669999995" green="1" blue="0.99163756189999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
                                                     <constraint firstItem="nLD-r4-ciM" firstAttribute="leading" secondItem="nCY-QB-usQ" secondAttribute="leading" constant="8" id="DJm-Fe-VEI"/>
                                                     <constraint firstItem="nLD-r4-ciM" firstAttribute="top" secondItem="nCY-QB-usQ" secondAttribute="top" constant="8" id="Rhn-m4-6zy"/>
@@ -211,7 +211,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
-                                            <view clipsSubviews="YES" alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DU9-ph-blJ">
+                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DU9-ph-blJ">
                                                 <rect key="frame" x="196" y="0.0" width="186" height="128"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="duW-hX-YEY">
@@ -232,14 +232,14 @@
                                                             </label>
                                                         </subviews>
                                                     </stackView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 m/s" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qYH-rc-j7k">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="North" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qYH-rc-j7k">
                                                         <rect key="frame" x="8" y="37" width="170" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="backgroundColor" red="0.81768161669999995" green="1" blue="0.99163756189999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="qYH-rc-j7k" secondAttribute="trailing" constant="8" id="8ib-M5-3bY"/>
                                                     <constraint firstItem="duW-hX-YEY" firstAttribute="top" secondItem="DU9-ph-blJ" secondAttribute="top" constant="8" id="9Ee-zJ-baX"/>
@@ -256,9 +256,29 @@
                                             </view>
                                         </subviews>
                                     </stackView>
-                                    <view clipsSubviews="YES" alpha="0.60000002384185791" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qfo-qD-D0k">
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qfo-qD-D0k">
                                         <rect key="frame" x="0.0" y="272" width="382" height="128"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Whk-SY-nZ4">
+                                                <rect key="frame" x="8" y="8" width="150" height="21"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="globe.asia.australia.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="zxM-4I-FfA">
+                                                        <rect key="frame" x="0.0" y="0.5" width="21" height="20"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="21" id="SfI-Eq-3Yv"/>
+                                                            <constraint firstAttribute="height" constant="21" id="fmj-6M-BMQ"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Air quality index" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PMj-fb-p0d">
+                                                        <rect key="frame" x="29" y="0.0" width="121" height="21"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.81768161669999995" green="1" blue="0.99163756189999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -310,15 +330,13 @@
     <resources>
         <image name="arrow.up.and.down.and.arrow.left.and.right" catalog="system" width="128" height="122"/>
         <image name="drop.fill" catalog="system" width="101" height="128"/>
+        <image name="globe.asia.australia.fill" catalog="system" width="128" height="121"/>
         <image name="icloud.fill" catalog="system" width="128" height="88"/>
         <image name="location.circle.fill" catalog="system" width="128" height="121"/>
         <image name="sun.min.fill" catalog="system" width="128" height="121"/>
         <image name="wind" catalog="system" width="128" height="103"/>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemCyanColor">
             <color red="0.19607843137254902" green="0.67843137254901964" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

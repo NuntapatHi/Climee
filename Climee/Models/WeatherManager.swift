@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 protocol WeatherManagerDelegate{
-    func weatherDidUpdate(_ weatherManager: WeatherManager, weatherData: WeatherData)
+    func weatherDidUpdate<T: Codable>(_ weatherManager: WeatherManager, resultData: T)
     func weatherWithError(_ weatherManager: WeatherManager, error: Error)
 }
 
@@ -30,8 +30,8 @@ struct WeatherManager{
         
         request(urlString: urlString, expecting: WeatherData.self) { result in
             switch result {
-            case .success(let weatherData):
-                delegate?.weatherDidUpdate(self, weatherData: weatherData)
+            case .success(let data):
+                delegate?.weatherDidUpdate(self, resultData: data)
             case .failure(let error):
                 delegate?.weatherWithError(self, error: error)
             }
@@ -43,8 +43,8 @@ struct WeatherManager{
         print(urlString)
         request(urlString: urlString, expecting: AirPollutionData.self) { result in
             switch result {
-            case .success(let weatherData):
-                print(result)
+            case .success(let data):
+                delegate?.weatherDidUpdate(self, resultData: data)
             case .failure(let error):
                 delegate?.weatherWithError(self, error: error)
             }
