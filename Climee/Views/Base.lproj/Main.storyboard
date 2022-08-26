@@ -259,19 +259,37 @@
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qfo-qD-D0k">
                                         <rect key="frame" x="0.0" y="272" width="382" height="128"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Whk-SY-nZ4">
-                                                <rect key="frame" x="8" y="8" width="150" height="21"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="good-emotion" translatesAutoresizingMaskIntoConstraints="NO" id="XUK-Ej-HPW">
+                                                <rect key="frame" x="12" y="8" width="120" height="112"/>
+                                                <color key="backgroundColor" red="0.53950489160000004" green="0.76942896839999997" blue="0.53064779559999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="120" id="eW5-Vz-miR"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="8"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </imageView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="jzx-CX-tH0">
+                                                <rect key="frame" x="144" y="8" width="230" height="112"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="globe.asia.australia.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="zxM-4I-FfA">
-                                                        <rect key="frame" x="0.0" y="0.5" width="21" height="20"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="21" id="SfI-Eq-3Yv"/>
-                                                            <constraint firstAttribute="height" constant="21" id="fmj-6M-BMQ"/>
-                                                        </constraints>
-                                                    </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Air quality index" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PMj-fb-p0d">
-                                                        <rect key="frame" x="29" y="0.0" width="121" height="21"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PM2.5 :  0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bRo-Dr-dwK">
+                                                        <rect key="frame" x="71" y="0.0" width="88.5" height="34.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ebl-wb-W29">
+                                                        <rect key="frame" x="86.5" y="38.5" width="57" height="35"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="description" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="XSt-XY-BPI">
+                                                        <rect key="frame" x="74.5" y="77.5" width="81.5" height="34.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -279,6 +297,15 @@
                                             </stackView>
                                         </subviews>
                                         <color key="backgroundColor" red="0.81768161669999995" green="1" blue="0.99163756189999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="jzx-CX-tH0" secondAttribute="bottom" constant="8" id="1lz-Ko-5aB"/>
+                                            <constraint firstItem="XUK-Ej-HPW" firstAttribute="leading" secondItem="qfo-qD-D0k" secondAttribute="leading" constant="12" id="3AT-LW-sXt"/>
+                                            <constraint firstAttribute="trailing" secondItem="jzx-CX-tH0" secondAttribute="trailing" constant="8" id="8lx-HJ-3vV"/>
+                                            <constraint firstAttribute="bottom" secondItem="XUK-Ej-HPW" secondAttribute="bottom" constant="8" id="CBM-h7-Ja9"/>
+                                            <constraint firstItem="XUK-Ej-HPW" firstAttribute="top" secondItem="qfo-qD-D0k" secondAttribute="top" constant="8" id="OO8-0i-Cmd"/>
+                                            <constraint firstItem="jzx-CX-tH0" firstAttribute="top" secondItem="qfo-qD-D0k" secondAttribute="top" constant="8" id="Q5I-4t-JWP"/>
+                                            <constraint firstItem="jzx-CX-tH0" firstAttribute="leading" secondItem="XUK-Ej-HPW" secondAttribute="trailing" constant="12" id="krs-xu-CZL"/>
+                                        </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -309,12 +336,16 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="ImgAQIImageView" destination="XUK-Ej-HPW" id="12N-DA-Ldd"/>
                         <outlet property="cityNameLabel" destination="7RH-Iu-dwn" id="PhS-AB-Ua4"/>
                         <outlet property="cloudinessLabel" destination="2Vd-1m-1hR" id="EKw-6C-jsm"/>
+                        <outlet property="descriptionAQILabel" destination="XSt-XY-BPI" id="CJ4-ZR-828"/>
                         <outlet property="descriptionLabel" destination="frR-27-wdk" id="dFo-QL-V6N"/>
                         <outlet property="humidityLabel" destination="S4B-Dx-C85" id="PWR-4c-g1b"/>
+                        <outlet property="indexAQILabel" destination="ebl-wb-W29" id="UFF-mF-V8S"/>
                         <outlet property="locationImage" destination="fsh-zQ-7fv" id="pwE-R4-NWG"/>
                         <outlet property="minMaxTemperatureLabel" destination="wuG-dg-ddn" id="WIJ-Kw-Jon"/>
+                        <outlet property="pmLabel" destination="bRo-Dr-dwK" id="4Op-Ak-olP"/>
                         <outlet property="searchBar" destination="a2c-nf-mvr" id="6UJ-Wz-Ky3"/>
                         <outlet property="temperatureLabel" destination="2rI-OO-Vpb" id="ynW-EM-WQN"/>
                         <outlet property="weatherImage" destination="uhG-rQ-QIx" id="pnb-rY-1Eq"/>
@@ -330,7 +361,7 @@
     <resources>
         <image name="arrow.up.and.down.and.arrow.left.and.right" catalog="system" width="128" height="122"/>
         <image name="drop.fill" catalog="system" width="101" height="128"/>
-        <image name="globe.asia.australia.fill" catalog="system" width="128" height="121"/>
+        <image name="good-emotion" width="512" height="512"/>
         <image name="icloud.fill" catalog="system" width="128" height="88"/>
         <image name="location.circle.fill" catalog="system" width="128" height="121"/>
         <image name="sun.min.fill" catalog="system" width="128" height="121"/>

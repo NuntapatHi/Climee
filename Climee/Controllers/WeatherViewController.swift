@@ -5,6 +5,7 @@
 //  Created by Nuntapat Hirunnattee on 16/8/2565 BE.
 //
 
+import Foundation
 import UIKit
 import Kingfisher
 
@@ -18,18 +19,22 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var minMaxTemperatureLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     
-    
     @IBOutlet weak var cloudinessLabel: UILabel!
     @IBOutlet weak var humidityLabel: UILabel!
     @IBOutlet weak var windSpeedLabel: UILabel!
     @IBOutlet weak var windDirectionLabel: UILabel!
+    
+    @IBOutlet weak var ImgAQIImageView: UIImageView!
+    @IBOutlet weak var pmLabel: UILabel!
+    @IBOutlet weak var indexAQILabel: UILabel!
+    @IBOutlet weak var descriptionAQILabel: UILabel!
     
     var weatherManager = WeatherManager()
     
     override func viewDidLoad() {
         weatherManager.delegate = self
         super.viewDidLoad()
-        weatherManager.weatherFatch(cityName: "London")
+        weatherManager.weatherFatch(cityName: "Bangkok")
     }
     
 }
@@ -53,8 +58,14 @@ extension WeatherViewController: WeatherManagerDelegate{
         }
         
         if let data = resultData as? AirPollutionData{
+            let airPollutionModel = AirPollutionModel(airPollutionData: data)
             DispatchQueue.main.async {
-                //waiting for ui design
+                self.ImgAQIImageView.image = UIImage(named: airPollutionModel.statusAQI[0])
+                self.pmLabel.text = "PM2.5 (\(data.list[0].components.pm2_5))"
+                self.indexAQILabel.text = airPollutionModel.statusAQI[1]
+                self.descriptionAQILabel.text = airPollutionModel.statusAQI[2]
+                self.ImgAQIImageView.backgroundColor = UIColor(named: airPollutionModel.statusAQI[3])
+
             }
         }
     }
