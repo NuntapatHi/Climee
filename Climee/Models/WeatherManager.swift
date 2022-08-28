@@ -22,7 +22,7 @@ struct WeatherManager{
     
     var delegate: WeatherManagerDelegate?
     
-    let openWeatherURL = "https://api.openweathermap.org/data/2.5/weather?&units=metric&"
+    let openWeatherURL = "https://api.openweathermap.org/data/2.5/wewather?&units=metric&"
 
     let apikey = "addac5760d2063966c0f5102171286c7"
     
@@ -40,7 +40,7 @@ struct WeatherManager{
     }
     func weatherFatch(lat: CLLocationDegrees, lon: CLLocationDegrees){
         var urlString = "\(K.weatherURL)lat=\(lat)&lon=\(lon)&appid=\(K.apiKey)"
-        print(urlString)
+        
         request(urlString: urlString, expecting: WeatherData.self) { result in
             switch result {
             case .success(let data):
