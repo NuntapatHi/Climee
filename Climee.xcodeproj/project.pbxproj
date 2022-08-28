@@ -10,6 +10,7 @@
 		302B28B941C7C07239F71C40 /* Pods_Climee.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E0E771F2C9A98EA695C5A6E /* Pods_Climee.framework */; };
 		878FB5EB28B4B90800ECE544 /* AirPollutionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878FB5EA28B4B90800ECE544 /* AirPollutionData.swift */; };
 		878FB5ED28B4C52E00ECE544 /* AirPollutionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878FB5EC28B4C52E00ECE544 /* AirPollutionModel.swift */; };
+		8793A89128BB390B00FBA5E0 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8793A89028BB390B00FBA5E0 /* Extensions.swift */; };
 		879A850328AB8043003957A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879A850228AB8043003957A9 /* AppDelegate.swift */; };
 		879A850528AB8043003957A9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879A850428AB8043003957A9 /* SceneDelegate.swift */; };
 		879A850728AB8043003957A9 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879A850628AB8043003957A9 /* WeatherViewController.swift */; };
@@ -26,6 +27,7 @@
 		53C92F2C3938931ACB8BCCA6 /* Pods-Climee.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Climee.release.xcconfig"; path = "Target Support Files/Pods-Climee/Pods-Climee.release.xcconfig"; sourceTree = "<group>"; };
 		878FB5EA28B4B90800ECE544 /* AirPollutionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirPollutionData.swift; sourceTree = "<group>"; };
 		878FB5EC28B4C52E00ECE544 /* AirPollutionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirPollutionModel.swift; sourceTree = "<group>"; };
+		8793A89028BB390B00FBA5E0 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		879A84FF28AB8043003957A9 /* Climee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Climee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		879A850228AB8043003957A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		879A850428AB8043003957A9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				879A850628AB8043003957A9 /* WeatherViewController.swift */,
+				8793A89028BB390B00FBA5E0 /* Extensions.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -261,6 +264,7 @@
 				879A850328AB8043003957A9 /* AppDelegate.swift in Sources */,
 				878FB5ED28B4C52E00ECE544 /* AirPollutionModel.swift in Sources */,
 				87B6E37328AE3D320084D5B3 /* Constant.swift in Sources */,
+				8793A89128BB390B00FBA5E0 /* Extensions.swift in Sources */,
 				879A851C28ABD8A3003957A9 /* WeatherManager.swift in Sources */,
 				879A852028ABE83B003957A9 /* WeatherModel.swift in Sources */,
 				879A850528AB8043003957A9 /* SceneDelegate.swift in Sources */,

@@ -42,7 +42,10 @@ class WeatherViewController: UIViewController {
         locationManager.requestWhenInUseAuthorization()
         locationManager.requestLocation()
         
+        self.dismissKeybaordWhenTouchAround()
     }
+    
+    
     
 }
 
