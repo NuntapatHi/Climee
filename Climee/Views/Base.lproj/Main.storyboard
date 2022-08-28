@@ -19,7 +19,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="XqL-0j-ZbB">
                                 <rect key="frame" x="16" y="52" width="382" height="40"/>
                                 <subviews>
-                                    <searchBar contentMode="redraw" searchBarStyle="minimal" text="" translatesAutoresizingMaskIntoConstraints="NO" id="a2c-nf-mvr">
+                                    <searchBar contentMode="redraw" searchBarStyle="minimal" text="" placeholder="Search for a city" translatesAutoresizingMaskIntoConstraints="NO" id="a2c-nf-mvr">
                                         <rect key="frame" x="0.0" y="0.0" width="338" height="40"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </searchBar>
@@ -270,13 +270,16 @@
                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                         <integer key="value" value="8"/>
                                                     </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                        <integer key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="jzx-CX-tH0">
                                                 <rect key="frame" x="144" y="8" width="230" height="112"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PM2.5 :  0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bRo-Dr-dwK">
-                                                        <rect key="frame" x="71" y="0.0" width="88.5" height="34.5"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PM2.5 (0)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bRo-Dr-dwK">
+                                                        <rect key="frame" x="71.5" y="0.0" width="87.5" height="34.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -343,7 +346,7 @@
                         <outlet property="descriptionLabel" destination="frR-27-wdk" id="dFo-QL-V6N"/>
                         <outlet property="humidityLabel" destination="S4B-Dx-C85" id="PWR-4c-g1b"/>
                         <outlet property="indexAQILabel" destination="ebl-wb-W29" id="UFF-mF-V8S"/>
-                        <outlet property="locationImage" destination="fsh-zQ-7fv" id="pwE-R4-NWG"/>
+                        <outlet property="locationButtonImage" destination="fsh-zQ-7fv" id="pwE-R4-NWG"/>
                         <outlet property="minMaxTemperatureLabel" destination="wuG-dg-ddn" id="WIJ-Kw-Jon"/>
                         <outlet property="pmLabel" destination="bRo-Dr-dwK" id="4Op-Ak-olP"/>
                         <outlet property="searchBar" destination="a2c-nf-mvr" id="6UJ-Wz-Ky3"/>

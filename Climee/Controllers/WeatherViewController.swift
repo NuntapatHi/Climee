@@ -10,9 +10,9 @@ import UIKit
 import Kingfisher
 
 class WeatherViewController: UIViewController {
-
+    
     @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var locationImage: UIImageView!
+    @IBOutlet weak var locationButtonImage: UIImageView!
     @IBOutlet weak var cityNameLabel: UILabel!
     @IBOutlet weak var weatherImage: UIImageView!
     @IBOutlet weak var temperatureLabel: UILabel!
@@ -32,13 +32,30 @@ class WeatherViewController: UIViewController {
     var weatherManager = WeatherManager()
     
     override func viewDidLoad() {
-        weatherManager.delegate = self
         super.viewDidLoad()
+        weatherManager.delegate = self
+        searchBar.delegate = self
         weatherManager.weatherFatch(cityName: "Bangkok")
     }
-    
 }
 
+//MARK: - SearchBarDelegates
+extension WeatherViewController: UISearchBarDelegate{
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        if searchBar.text == ""{
+            searchBar.resignFirstResponder()
+        }
+        else {
+            if let cityName = searchBar.text{
+                weatherManager.weatherFatch(cityName: cityName)
+                searchBar.text = ""
+                searchBar.resignFirstResponder()
+            }
+        }
+    }
+}
+
+//MARK: - WeatherManagerDelegates
 extension WeatherViewController: WeatherManagerDelegate{
     func weatherDidUpdate<T>(_ weatherManager: WeatherManager, resultData: T) where T : Decodable, T : Encodable {
         if let data = resultData as? WeatherData{
@@ -65,12 +82,11 @@ extension WeatherViewController: WeatherManagerDelegate{
                 self.indexAQILabel.text = airPollutionModel.statusAQI[1]
                 self.descriptionAQILabel.text = airPollutionModel.statusAQI[2]
                 self.ImgAQIImageView.backgroundColor = UIColor(named: airPollutionModel.statusAQI[3])
-
             }
         }
     }
     
     func weatherWithError(_ weatherManager: WeatherManager, error: Error) {
-        print(error)
+        print("Error : \(error)")
     }
 }
