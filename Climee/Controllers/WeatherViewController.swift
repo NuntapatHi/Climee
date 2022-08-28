@@ -8,11 +8,12 @@
 import Foundation
 import UIKit
 import Kingfisher
+import CoreLocation
 
 class WeatherViewController: UIViewController {
     
+    
     @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var locationButtonImage: UIImageView!
     @IBOutlet weak var cityNameLabel: UILabel!
     @IBOutlet weak var weatherImage: UIImageView!
     @IBOutlet weak var temperatureLabel: UILabel!
@@ -30,13 +31,19 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var descriptionAQILabel: UILabel!
     
     var weatherManager = WeatherManager()
+    var locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         weatherManager.delegate = self
         searchBar.delegate = self
-        weatherManager.weatherFatch(cityName: "Bangkok")
+        locationManager.delegate = self
+        
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.requestLocation()
+        
     }
+    
 }
 
 //MARK: - SearchBarDelegates
@@ -54,7 +61,23 @@ extension WeatherViewController: UISearchBarDelegate{
         }
     }
 }
-
+//MARK: - CLLocationManagerDelegate
+extension WeatherViewController: CLLocationManagerDelegate{
+    @IBAction func locationButtonPressed(_ sender: UIButton) {
+        locationManager.requestLocation()
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.last{
+            let lat = location.coordinate.latitude
+            let lon = location.coordinate.longitude
+            weatherManager.weatherFatch(lat: lat, lon: lon)
+        }
+    }
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error)
+    }
+}
 //MARK: - WeatherManagerDelegates
 extension WeatherViewController: WeatherManagerDelegate{
     func weatherDidUpdate<T>(_ weatherManager: WeatherManager, resultData: T) where T : Decodable, T : Encodable {

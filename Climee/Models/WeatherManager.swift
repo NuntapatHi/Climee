@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import CoreLocation
 protocol WeatherManagerDelegate{
     func weatherDidUpdate<T: Codable>(_ weatherManager: WeatherManager, resultData: T)
     func weatherWithError(_ weatherManager: WeatherManager, error: Error)
@@ -37,10 +38,22 @@ struct WeatherManager{
             }
         }
     }
+    func weatherFatch(lat: CLLocationDegrees, lon: CLLocationDegrees){
+        var urlString = "\(K.weatherURL)lat=\(lat)&lon=\(lon)&appid=\(K.apiKey)"
+        print(urlString)
+        request(urlString: urlString, expecting: WeatherData.self) { result in
+            switch result {
+            case .success(let data):
+                delegate?.weatherDidUpdate(self, resultData: data)
+            case .failure(let error):
+                delegate?.weatherWithError(self, error: error)
+            }
+        }
+    }
     
     func airPollutionFatch(lat: Float, lon: Float){
         var urlString = "\(K.airPollutionURL)lat=\(lat)&lon=\(lon)&appid=\(K.apiKey)"
-        print(urlString)
+        
         request(urlString: urlString, expecting: AirPollutionData.self) { result in
             switch result {
             case .success(let data):
