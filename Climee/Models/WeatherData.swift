@@ -14,6 +14,7 @@ struct WeatherData: Codable{
     let main: Main
     let wind: Wind
     let clouds: Clouds
+    let visibility: Int
 }
 
 struct Weather: Codable{
@@ -24,8 +25,8 @@ struct Weather: Codable{
 }
 
 struct Coord: Codable{
-    let lon: Float
-    let lat: Float
+    let lon: Double
+    let lat: Double
 }
 
 struct Main: Codable{

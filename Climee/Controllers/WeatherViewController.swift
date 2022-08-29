@@ -20,10 +20,11 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var minMaxTemperatureLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     
-    @IBOutlet weak var cloudinessLabel: UILabel!
-    @IBOutlet weak var humidityLabel: UILabel!
-    @IBOutlet weak var windSpeedLabel: UILabel!
+    @IBOutlet weak var cloudinessValueLabel: UILabel!
+    @IBOutlet weak var humidityValueLabel: UILabel!
+    @IBOutlet weak var windValueLabel: UILabel!
     @IBOutlet weak var windDirectionLabel: UILabel!
+    @IBOutlet weak var visibilityValue: UILabel!
     
     @IBOutlet weak var ImgAQIImageView: UIImageView!
     @IBOutlet weak var pmLabel: UILabel!
@@ -44,9 +45,6 @@ class WeatherViewController: UIViewController {
         
         self.dismissKeybaordWhenTouchAround()
     }
-    
-    
-    
 }
 
 //MARK: - SearchBarDelegates
@@ -91,12 +89,14 @@ extension WeatherViewController: WeatherManagerDelegate{
                 self.cityNameLabel.text = data.name
                 self.temperatureLabel.text = "\(data.main.temp)°"
                 self.minMaxTemperatureLabel.text = "H : \(data.main.temp_max)° L : \(data.main.temp_min)°"
-                self.descriptionLabel.text = data.weather[0].description
-                self.cloudinessLabel.text = "\(data.clouds.all) %"
-                self.humidityLabel.text = "\(data.main.humidity) %"
-                self.windSpeedLabel.text = "\(data.wind.speed) m/s"
-                self.windDirectionLabel.text = weatherModel.windDirection
+                self.descriptionLabel.text = data.weather[0].description.capitalizingFirstLetter()
                 self.weatherImage.kf.setImage(with: URL(string: weatherModel.imgUrlString), options: [.transition(.fade(1))])
+                
+                self.cloudinessValueLabel.text = "\(data.clouds.all) %"
+                self.humidityValueLabel.text = "\(data.main.humidity) %"
+                self.windValueLabel.text = "\(data.wind.speed) m/s"
+                self.windDirectionLabel.text = weatherModel.windDirection
+                self.visibilityValue.text = "\(weatherModel.visibilityDistance) km"
             }
         }
         

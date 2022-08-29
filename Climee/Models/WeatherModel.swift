@@ -55,4 +55,11 @@ struct WeatherModel{
             return urlString
         }
     }
+    
+    var visibilityDistance: Float{
+        get{
+            let distance = Float((weatherData.visibility)/1000)
+            return distance
+        }
+    }
 }

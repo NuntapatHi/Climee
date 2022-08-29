@@ -10,7 +10,7 @@ import UIKit
 
 extension UIViewController {
     
-//MARK: - Close keyboard when touch around
+//Close keyboard when touch around view
     func dismissKeybaordWhenTouchAround(){
         //Looks for single or multiple taps.
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
@@ -25,5 +25,15 @@ extension UIViewController {
     @objc func dismissKeyboard() {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
+    }
+}
+//Change first latter of String to uppercase
+extension String {
+    func capitalizingFirstLetter() -> String {
+      return prefix(1).uppercased() + self.lowercased().dropFirst()
+    }
+
+    mutating func capitalizeFirstLetter() {
+      self = self.capitalizingFirstLetter()
     }
 }
