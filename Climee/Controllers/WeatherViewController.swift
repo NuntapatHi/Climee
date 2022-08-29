@@ -34,14 +34,16 @@ class WeatherViewController: UIViewController {
     var weatherManager = WeatherManager()
     var locationManager = CLLocationManager()
     
+    override func viewWillAppear(_ animated: Bool) {
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.requestLocation()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         weatherManager.delegate = self
         searchBar.delegate = self
         locationManager.delegate = self
-        
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.requestLocation()
         
         self.dismissKeybaordWhenTouchAround()
     }
@@ -68,6 +70,9 @@ extension WeatherViewController: CLLocationManagerDelegate{
         locationManager.requestLocation()
     }
     
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        manager.requestLocation()
+    }
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last{
             let lat = location.coordinate.latitude
