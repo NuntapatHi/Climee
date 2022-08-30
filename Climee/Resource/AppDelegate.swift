@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         //delay launchScreen
-        Thread.sleep(forTimeInterval: 0.5)
+        Thread.sleep(forTimeInterval: 1.0)
         return true
     }
 

@@ -13,6 +13,14 @@ import CoreLocation
 class WeatherViewController: UIViewController {
     
     
+    @IBOutlet var mainView: UIView!
+    @IBOutlet weak var cloudinessCardView: UIView!
+    @IBOutlet weak var humidityCardView: UIView!
+    @IBOutlet weak var windCardView: UIView!
+    @IBOutlet weak var visibilityCardView: UIView!
+    @IBOutlet weak var aqiCardView: UIView!
+    
+    
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var cityNameLabel: UILabel!
     @IBOutlet weak var weatherImage: UIImageView!
@@ -91,28 +99,43 @@ extension WeatherViewController: WeatherManagerDelegate{
             weatherManager.airPollutionFatch(lat: data.coord.lat, lon: data.coord.lon)
             let weatherModel = WeatherModel(weatherData: data)
             DispatchQueue.main.async {
-                self.cityNameLabel.text = data.name
+                
+                //Change theme background color with weather codition
+                print(weatherModel.themeBackgroundColor[0])
+                print(weatherModel.themeBackgroundColor[1])
+                self.mainView.backgroundColor = UIColor(named: weatherModel.themeBackgroundColor[0])
+                self.cloudinessCardView.backgroundColor = UIColor(named: weatherModel.themeBackgroundColor[1])
+                self.humidityCardView.backgroundColor = UIColor(named: weatherModel.themeBackgroundColor[1])
+                self.windCardView.backgroundColor = UIColor(named: weatherModel.themeBackgroundColor[1])
+                self.visibilityCardView.backgroundColor = UIColor(named: weatherModel.themeBackgroundColor[1])
+                self.aqiCardView.backgroundColor = UIColor(named: weatherModel.themeBackgroundColor[1])
+                
+                //set up weather data
+                self.cityNameLabel.text = "\(data.name), \(data.sys.country)"
                 self.temperatureLabel.text = "\(data.main.temp)°"
                 self.minMaxTemperatureLabel.text = "H : \(data.main.temp_max)° L : \(data.main.temp_min)°"
                 self.descriptionLabel.text = data.weather[0].description.capitalizingFirstLetter()
                 self.weatherImage.kf.setImage(with: URL(string: weatherModel.imgUrlString), options: [.transition(.fade(1))])
-                
                 self.cloudinessValueLabel.text = "\(data.clouds.all) %"
                 self.humidityValueLabel.text = "\(data.main.humidity) %"
                 self.windValueLabel.text = "\(data.wind.speed) m/s"
                 self.windDirectionLabel.text = weatherModel.windDirection
                 self.visibilityValue.text = "\(weatherModel.visibilityDistance) km"
+                
             }
         }
         
         if let data = resultData as? AirPollutionData{
             let airPollutionModel = AirPollutionModel(airPollutionData: data)
             DispatchQueue.main.async {
+
+                // Set up pollution data
                 self.ImgAQIImageView.image = UIImage(named: airPollutionModel.statusAQI[0])
                 self.pmLabel.text = "PM2.5 (\(data.list[0].components.pm2_5))"
                 self.indexAQILabel.text = airPollutionModel.statusAQI[1]
                 self.descriptionAQILabel.text = airPollutionModel.statusAQI[2]
                 self.ImgAQIImageView.backgroundColor = UIColor(named: airPollutionModel.statusAQI[3])
+                
             }
         }
     }

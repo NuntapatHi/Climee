@@ -30,7 +30,7 @@
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" name="PrimaryColor"/>
+                        <color key="backgroundColor" name="Clear-Sun-Primary-Color"/>
                         <constraints>
                             <constraint firstItem="U3v-ZK-Qsi" firstAttribute="top" secondItem="XuN-Gz-mBW" secondAttribute="bottom" constant="12" id="PzF-kn-prZ"/>
                             <constraint firstItem="XuN-Gz-mBW" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="aN1-kc-HZ3"/>
@@ -47,7 +47,7 @@
     </scenes>
     <resources>
         <image name="LunchScreenImage" width="170.5" height="170.5"/>
-        <namedColor name="PrimaryColor">
+        <namedColor name="Clear-Sun-Primary-Color">
             <color red="1" green="0.82352941176470584" blue="0.29803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="TextColor">

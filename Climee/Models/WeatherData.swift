@@ -15,6 +15,7 @@ struct WeatherData: Codable{
     let wind: Wind
     let clouds: Clouds
     let visibility: Int
+    let sys: SYS
 }
 
 struct Weather: Codable{
@@ -44,4 +45,8 @@ struct Wind: Codable{
 
 struct Clouds: Codable{
     let all: Int
+}
+
+struct SYS: Codable{
+    let country: String
 }

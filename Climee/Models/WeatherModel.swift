@@ -62,4 +62,17 @@ struct WeatherModel{
             return distance
         }
     }
+    
+    var themeBackgroundColor: [String]{
+        switch weatherData.weather[0].id{
+        case 200...531:
+            return ["Thunder-Rain-Primary-Color", "Thunder-Rain-Secondary-Color"]
+        case 600...781:
+            return ["Snow-Mist-Primary-Color", "Snow-Mist-Secondary-Color"]
+        case 800...804:
+            return ["Clear-Sun-Primary-Color", "Clear-Sun-Secondary-Color"]
+        default:
+            return ["Snow-Mist-Primary-Color", "Snow-Mist-Secondary-Color"]
+        }
+    }
 }

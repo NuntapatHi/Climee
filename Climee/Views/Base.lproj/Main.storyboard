@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_1" orientation="portrait" appearance="dark"/>
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -116,7 +116,7 @@
                                                         </subviews>
                                                     </stackView>
                                                 </subviews>
-                                                <color key="backgroundColor" name="SecondaryColor"/>
+                                                <color key="backgroundColor" name="Clear-Sun-Secondary-Color"/>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="Imx-nX-WPn" secondAttribute="trailing" constant="16" id="RuH-F0-bki"/>
                                                     <constraint firstItem="Imx-nX-WPn" firstAttribute="leading" secondItem="ty4-8y-sac" secondAttribute="trailing" constant="4" id="WLL-Wa-LyU"/>
@@ -160,7 +160,7 @@
                                                         </subviews>
                                                     </stackView>
                                                 </subviews>
-                                                <color key="backgroundColor" name="SecondaryColor"/>
+                                                <color key="backgroundColor" name="Clear-Sun-Secondary-Color"/>
                                                 <constraints>
                                                     <constraint firstItem="TCv-XN-spw" firstAttribute="leading" secondItem="qBH-nN-eKD" secondAttribute="leading" constant="16" id="HPq-DW-hIO"/>
                                                     <constraint firstAttribute="trailing" secondItem="cmA-Oy-8da" secondAttribute="trailing" constant="16" id="Szt-0k-l85"/>
@@ -214,7 +214,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
-                                                <color key="backgroundColor" name="SecondaryColor"/>
+                                                <color key="backgroundColor" name="Clear-Sun-Secondary-Color"/>
                                                 <constraints>
                                                     <constraint firstItem="dBy-ol-ua0" firstAttribute="top" secondItem="9J5-zG-s8L" secondAttribute="bottom" constant="7.5" id="9QB-vw-isy"/>
                                                     <constraint firstAttribute="trailing" secondItem="BTj-R4-DkP" secondAttribute="trailing" constant="16" id="Hza-P2-8MK"/>
@@ -261,7 +261,7 @@
                                                         </subviews>
                                                     </stackView>
                                                 </subviews>
-                                                <color key="backgroundColor" name="SecondaryColor"/>
+                                                <color key="backgroundColor" name="Clear-Sun-Secondary-Color"/>
                                                 <constraints>
                                                     <constraint firstItem="3Bo-YP-wlt" firstAttribute="top" secondItem="lV4-12-x9v" secondAttribute="top" constant="4" id="4RN-tt-YWy"/>
                                                     <constraint firstItem="3Bo-YP-wlt" firstAttribute="leading" secondItem="1bC-1e-qYI" secondAttribute="trailing" constant="4" id="9x1-9Y-fkz"/>
@@ -327,7 +327,7 @@
                                                 </constraints>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" name="SecondaryColor"/>
+                                        <color key="backgroundColor" name="Clear-Sun-Secondary-Color"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="jzx-CX-tH0" secondAttribute="bottom" constant="8" id="1lz-Ko-5aB"/>
                                             <constraint firstItem="XUK-Ej-HPW" firstAttribute="leading" secondItem="qfo-qD-D0k" secondAttribute="leading" constant="12" id="3AT-LW-sXt"/>
@@ -352,7 +352,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" name="PrimaryColor"/>
+                        <color key="backgroundColor" name="Clear-Sun-Primary-Color"/>
                         <constraints>
                             <constraint firstItem="XqL-0j-ZbB" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="4" id="00p-Ef-tAR"/>
                             <constraint firstItem="IXx-aT-3IT" firstAttribute="top" secondItem="XqL-0j-ZbB" secondAttribute="bottom" constant="16" id="69x-g0-ymN"/>
@@ -368,18 +368,24 @@
                     </view>
                     <connections>
                         <outlet property="ImgAQIImageView" destination="XUK-Ej-HPW" id="12N-DA-Ldd"/>
+                        <outlet property="aqiCardView" destination="qfo-qD-D0k" id="hd6-tZ-kOQ"/>
                         <outlet property="cityNameLabel" destination="7RH-Iu-dwn" id="PhS-AB-Ua4"/>
+                        <outlet property="cloudinessCardView" destination="e1f-VN-lA0" id="oYZ-5Z-3zZ"/>
                         <outlet property="cloudinessValueLabel" destination="2Vd-1m-1hR" id="UVY-xm-9IM"/>
                         <outlet property="descriptionAQILabel" destination="XSt-XY-BPI" id="CJ4-ZR-828"/>
                         <outlet property="descriptionLabel" destination="frR-27-wdk" id="dFo-QL-V6N"/>
+                        <outlet property="humidityCardView" destination="qBH-nN-eKD" id="MRA-XN-Uk4"/>
                         <outlet property="humidityValueLabel" destination="gMV-g0-FYn" id="Hun-V8-ggZ"/>
                         <outlet property="indexAQILabel" destination="ebl-wb-W29" id="UFF-mF-V8S"/>
+                        <outlet property="mainView" destination="8bC-Xf-vdC" id="jp5-Ee-mCt"/>
                         <outlet property="minMaxTemperatureLabel" destination="wuG-dg-ddn" id="WIJ-Kw-Jon"/>
                         <outlet property="pmLabel" destination="bRo-Dr-dwK" id="4Op-Ak-olP"/>
                         <outlet property="searchBar" destination="a2c-nf-mvr" id="6UJ-Wz-Ky3"/>
                         <outlet property="temperatureLabel" destination="2rI-OO-Vpb" id="ynW-EM-WQN"/>
+                        <outlet property="visibilityCardView" destination="lV4-12-x9v" id="8yz-zj-KDb"/>
                         <outlet property="visibilityValue" destination="aZS-8g-jOM" id="hCu-4p-ZG2"/>
                         <outlet property="weatherImage" destination="uhG-rQ-QIx" id="pnb-rY-1Eq"/>
+                        <outlet property="windCardView" destination="q8T-DU-4T4" id="Hqe-o4-0Vf"/>
                         <outlet property="windDirectionLabel" destination="dBy-ol-ua0" id="osQ-eQ-qZq"/>
                         <outlet property="windValueLabel" destination="LuA-tZ-VZe" id="vu0-Dh-jtD"/>
                     </connections>
@@ -397,8 +403,11 @@
         <image name="poor-emotion" width="512" height="512"/>
         <image name="sun.min.fill" catalog="system" width="128" height="121"/>
         <image name="wind.snow" catalog="system" width="128" height="112"/>
-        <namedColor name="PrimaryColor">
+        <namedColor name="Clear-Sun-Primary-Color">
             <color red="1" green="0.82352941176470584" blue="0.29803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Clear-Sun-Secondary-Color">
+            <color red="1" green="0.97647058823529409" blue="0.792156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="SecondaryColor">
             <color red="1" green="0.97647058823529409" blue="0.792156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
