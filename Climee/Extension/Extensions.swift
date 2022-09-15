@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 
 extension UIViewController {
-    
 //Close keyboard when touch around view
     func dismissKeybaordWhenTouchAround(){
         //Looks for single or multiple taps.
@@ -27,6 +26,7 @@ extension UIViewController {
         view.endEditing(true)
     }
 }
+
 //Change first latter of String to uppercase
 extension String {
     func capitalizingFirstLetter() -> String {

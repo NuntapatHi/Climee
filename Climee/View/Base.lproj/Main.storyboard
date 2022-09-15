@@ -377,6 +377,7 @@
                         <outlet property="humidityCardView" destination="qBH-nN-eKD" id="MRA-XN-Uk4"/>
                         <outlet property="humidityValueLabel" destination="gMV-g0-FYn" id="Hun-V8-ggZ"/>
                         <outlet property="indexAQILabel" destination="ebl-wb-W29" id="UFF-mF-V8S"/>
+                        <outlet property="locationButton" destination="Dn3-iB-tim" id="KxE-fC-BMl"/>
                         <outlet property="mainView" destination="8bC-Xf-vdC" id="jp5-Ee-mCt"/>
                         <outlet property="minMaxTemperatureLabel" destination="wuG-dg-ddn" id="WIJ-Kw-Jon"/>
                         <outlet property="pmLabel" destination="bRo-Dr-dwK" id="4Op-Ak-olP"/>
@@ -404,10 +405,10 @@
         <image name="sun.min.fill" catalog="system" width="128" height="121"/>
         <image name="wind.snow" catalog="system" width="128" height="112"/>
         <namedColor name="Clear-Sun-Primary-Color">
-            <color red="1" green="0.82352941176470584" blue="0.29803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.82400000095367432" blue="0.29800000786781311" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Clear-Sun-Secondary-Color">
-            <color red="1" green="0.97647058823529409" blue="0.792156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.97600001096725464" blue="0.79199999570846558" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="SecondaryColor">
             <color red="1" green="0.97647058823529409" blue="0.792156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -416,7 +417,7 @@
             <color red="0.36862745098039218" green="0.23137254901960785" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="TextColor">
-            <color red="0.34509803921568627" green="0.2196078431372549" blue="0.14901960784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

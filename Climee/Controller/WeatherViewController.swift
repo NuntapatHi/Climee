@@ -19,7 +19,7 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var windCardView: UIView!
     @IBOutlet weak var visibilityCardView: UIView!
     @IBOutlet weak var aqiCardView: UIView!
-    
+    @IBOutlet weak var locationButton: UIButton!
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var cityNameLabel: UILabel!
@@ -101,14 +101,13 @@ extension WeatherViewController: WeatherManagerDelegate{
             DispatchQueue.main.async {
                 
                 //Change theme background color with weather codition
-                print(weatherModel.themeBackgroundColor[0])
-                print(weatherModel.themeBackgroundColor[1])
                 self.mainView.backgroundColor = UIColor(named: weatherModel.themeBackgroundColor[0])
                 self.cloudinessCardView.backgroundColor = UIColor(named: weatherModel.themeBackgroundColor[1])
                 self.humidityCardView.backgroundColor = UIColor(named: weatherModel.themeBackgroundColor[1])
                 self.windCardView.backgroundColor = UIColor(named: weatherModel.themeBackgroundColor[1])
                 self.visibilityCardView.backgroundColor = UIColor(named: weatherModel.themeBackgroundColor[1])
                 self.aqiCardView.backgroundColor = UIColor(named: weatherModel.themeBackgroundColor[1])
+                self.locationButton.tintColor = UIColor(named: weatherModel.themeBackgroundColor[1])
                 
                 //set up weather data
                 self.cityNameLabel.text = "\(data.name), \(data.sys.country)"
@@ -128,7 +127,7 @@ extension WeatherViewController: WeatherManagerDelegate{
         if let data = resultData as? AirPollutionData{
             let airPollutionModel = AirPollutionModel(airPollutionData: data)
             DispatchQueue.main.async {
-
+                
                 // Set up pollution data
                 self.ImgAQIImageView.image = UIImage(named: airPollutionModel.statusAQI[0])
                 self.pmLabel.text = "PM2.5 (\(data.list[0].components.pm2_5))"

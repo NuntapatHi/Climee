@@ -22,14 +22,11 @@ struct WeatherManager{
     
     var delegate: WeatherManagerDelegate?
     
-    let openWeatherURL = "https://api.openweathermap.org/data/2.5/wewather?&units=metric&"
-
-    let apikey = "addac5760d2063966c0f5102171286c7"
-    
     //MARK: - openWeatherFatch
     //Fatch openWeather URL with cityName
     func weatherFatch(cityName: String){
-        var urlString = "\(K.weatherURL)appid=\(K.apiKey)&q=\(cityName)"
+        
+        let urlString = "\(K.weatherURL)appid=\(K.apiKey)&q=\(cityName)"
         
         request(urlString: urlString, expecting: WeatherData.self) { result in
             switch result {
@@ -40,9 +37,11 @@ struct WeatherManager{
             }
         }
     }
+    
     //Fatch openWeather URL with latitude and longitude
     func weatherFatch(lat: CLLocationDegrees, lon: CLLocationDegrees){
-        var urlString = "\(K.weatherURL)lat=\(lat)&lon=\(lon)&appid=\(K.apiKey)"
+        
+        let urlString = "\(K.weatherURL)lat=\(lat)&lon=\(lon)&appid=\(K.apiKey)"
         
         request(urlString: urlString, expecting: WeatherData.self) { result in
             switch result {
@@ -56,7 +55,7 @@ struct WeatherManager{
     
     //Fatch airPollution openWeather URL with latitude and longitude
     func airPollutionFatch(lat: Double, lon: Double){
-        var urlString = "\(K.airPollutionURL)lat=\(lat)&lon=\(lon)&appid=\(K.apiKey)"
+        let urlString = "\(K.airPollutionURL)lat=\(lat)&lon=\(lon)&appid=\(K.apiKey)"
         
         request(urlString: urlString, expecting: AirPollutionData.self) { result in
             switch result {
