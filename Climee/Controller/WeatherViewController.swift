@@ -10,8 +10,7 @@ import UIKit
 import Kingfisher
 import CoreLocation
 
-class WeatherViewController: UIViewController {
-    
+class WeatherViewController: UIViewController{
     
     @IBOutlet var mainView: UIView!
     @IBOutlet weak var cloudinessCardView: UIView!
@@ -39,8 +38,8 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var indexAQILabel: UILabel!
     @IBOutlet weak var descriptionAQILabel: UILabel!
     
-    var weatherManager = WeatherManager()
     var locationManager = CLLocationManager()
+    var viewModel = WeatherViewModel()
     
     override func viewWillAppear(_ animated: Bool) {
         locationManager.requestWhenInUseAuthorization()
@@ -49,10 +48,13 @@ class WeatherViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        weatherManager.delegate = self
+        setUp()
+    }
+    
+    private func setUp(){
+        viewModel.delegate = self
         searchBar.delegate = self
         locationManager.delegate = self
-        
         self.dismissKeybaordWhenTouchAround()
     }
 }
@@ -65,7 +67,7 @@ extension WeatherViewController: UISearchBarDelegate{
         }
         else {
             if let cityName = searchBar.text{
-                weatherManager.weatherFatch(cityName: cityName)
+                viewModel.weatherFatch(cityName: cityName)
                 searchBar.text = ""
                 searchBar.resignFirstResponder()
             }
@@ -85,7 +87,7 @@ extension WeatherViewController: CLLocationManagerDelegate{
         if let location = locations.last{
             let lat = location.coordinate.latitude
             let lon = location.coordinate.longitude
-            weatherManager.weatherFatch(lat: lat, lon: lon)
+            viewModel.weatherFatch(lat: lat, lon: lon)
         }
     }
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
@@ -93,10 +95,10 @@ extension WeatherViewController: CLLocationManagerDelegate{
     }
 }
 //MARK: - WeatherManagerDelegates
-extension WeatherViewController: WeatherManagerDelegate{
-    func weatherDidUpdate<T>(_ weatherManager: WeatherManager, resultData: T) where T : Decodable, T : Encodable {
+extension WeatherViewController: WeatherViewModelDelegate{
+    func weatherDidUpdate<T>(_ viewModel: WeatherViewModel, resultData: T) where T : Decodable, T : Encodable {
         if let data = resultData as? WeatherData{
-            weatherManager.airPollutionFatch(lat: data.coord.lat, lon: data.coord.lon)
+            viewModel.airPollutionFatch(lat: data.coord.lat, lon: data.coord.lon)
             let weatherModel = WeatherModel(weatherData: data)
             DispatchQueue.main.async {
                 
@@ -139,7 +141,7 @@ extension WeatherViewController: WeatherManagerDelegate{
         }
     }
     
-    func weatherWithError(_ weatherManager: WeatherManager, error: Error) {
+    func weatherWithError(_ viewModel: WeatherViewModel, error: Error) {
         print("Error : \(error)")
     }
 }
