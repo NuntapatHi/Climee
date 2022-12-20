@@ -10,15 +10,15 @@ import UIKit
 import CoreLocation
 
 protocol WeatherViewModelDelegate{
-    func weatherDidUpdate<T: Codable>(_ viewModel: WeatherViewModel, resultData: T)
-    func weatherWithError(_ viewModel: WeatherViewModel, error: Error)
+    func didUpdateWithWeatherData(data: WeatherData)
+    func didUpdateWithAirPollutionData(data: AirPollutionData)
+    func didUpdateWithError(error: Error)
 }
-
-typealias delegateType = WeatherViewController & WeatherViewModelDelegate
 
 class WeatherViewModel{
     
-    weak var delegate: delegateType?
+    var delegate: WeatherViewModelDelegate?
+    var weatherData: WeatherData?
     
     //MARK: - openWeatherFatch
     //Fatch openWeather URL with cityName
@@ -26,12 +26,15 @@ class WeatherViewModel{
         
         let urlString = "\(K.weatherURL)appid=\(K.apiKey)&q=\(cityName)"
         
-        APICaller.shared.request(urlString: urlString, expecting: WeatherData.self) { result in
+        APICaller.shared.request(urlString: urlString, expecting: WeatherData.self) { [weak self] result in
             switch result {
-            case .success(let data):
-                self.delegate?.weatherDidUpdate(self, resultData: data)
+            case .success(let weatherData):
+                //weatherUpdateData
+                self?.delegate?.didUpdateWithWeatherData(data: weatherData)
+                self?.weatherData = weatherData
             case .failure(let error):
-                self.delegate?.weatherWithError(self, error: error)
+                //weatherWithError
+                self?.delegate?.didUpdateWithError(error: error)
             }
         }
     }
@@ -41,12 +44,13 @@ class WeatherViewModel{
         
         let urlString = "\(K.weatherURL)lat=\(lat)&lon=\(lon)&appid=\(K.apiKey)"
         
-        APICaller.shared.request(urlString: urlString, expecting: WeatherData.self) { []result in
+        APICaller.shared.request(urlString: urlString, expecting: WeatherData.self) { [weak self]result in
             switch result {
-            case .success(let data):
-                self.delegate?.weatherDidUpdate(self, resultData: data)
+            case .success(let weatherData):
+                self?.delegate?.didUpdateWithWeatherData(data: weatherData)
+                self?.weatherData = weatherData
             case .failure(let error):
-                self.delegate?.weatherWithError(self, error: error)
+                self?.delegate?.didUpdateWithError(error: error)
             }
         }
     }
@@ -57,10 +61,10 @@ class WeatherViewModel{
         
         APICaller.shared.request(urlString: urlString, expecting: AirPollutionData.self) { result in
             switch result {
-            case .success(let data):
-                self.delegate?.weatherDidUpdate(self, resultData: data)
+            case .success(let airPollutionData):
+                self.delegate?.didUpdateWithAirPollutionData(data: airPollutionData)
             case .failure(let error):
-                self.delegate?.weatherWithError(self, error: error)
+                self.delegate?.didUpdateWithError(error: error)
             }
         }
     }
