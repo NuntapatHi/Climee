@@ -31,7 +31,6 @@ class WeatherViewController: UIViewController{
     @IBOutlet weak var humidityValueLabel: UILabel!
     @IBOutlet weak var windValueLabel: UILabel!
     @IBOutlet weak var windDirectionLabel: UILabel!
-    @IBOutlet weak var visibilityValue: UILabel!
     
     @IBOutlet weak var ImgAQIImageView: UIImageView!
     @IBOutlet weak var pmLabel: UILabel!
@@ -92,7 +91,7 @@ extension WeatherViewController: CLLocationManagerDelegate{
         }
     }
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print(error)
+        print("Something go wrong : \(error) -> \(error.localizedDescription)")
     }
 }
 //MARK: - WeatherManagerDelegates
@@ -100,17 +99,20 @@ extension WeatherViewController: WeatherViewModelDelegate{
     func didUpdateWithWeatherData(data: WeatherData) {
         
         viewModel.airPollutionFatch(lat: data.coord.lat, lon: data.coord.lon)
+        
         let weatherModel = WeatherModel(weatherData: data)
+        let primaryBackgroundColor = UIColor(named: weatherModel.themeBackgroundColor[0])
+        let secondaryBackgroundColor = UIColor(named: weatherModel.themeBackgroundColor[1])
         
         DispatchQueue.main.async { [weak self] in
             //Change theme background color with weather codition
-            self?.mainView.backgroundColor = UIColor(named: weatherModel.themeBackgroundColor[0])
-            self?.cloudinessCardView.backgroundColor = UIColor(named: weatherModel.themeBackgroundColor[1])
-            self?.humidityCardView.backgroundColor = UIColor(named: weatherModel.themeBackgroundColor[1])
-            self?.windCardView.backgroundColor = UIColor(named: weatherModel.themeBackgroundColor[1])
-            self?.visibilityCardView.backgroundColor = UIColor(named: weatherModel.themeBackgroundColor[1])
-            self?.aqiCardView.backgroundColor = UIColor(named: weatherModel.themeBackgroundColor[1])
-            self?.locationButton.tintColor = UIColor(named: weatherModel.themeBackgroundColor[1])
+            self?.mainView.backgroundColor = primaryBackgroundColor
+            self?.cloudinessCardView.backgroundColor = secondaryBackgroundColor
+            self?.humidityCardView.backgroundColor = secondaryBackgroundColor
+            self?.windCardView.backgroundColor = secondaryBackgroundColor
+            self?.visibilityCardView.backgroundColor = secondaryBackgroundColor
+            self?.aqiCardView.backgroundColor = secondaryBackgroundColor
+            self?.locationButton.tintColor = secondaryBackgroundColor
             
             //set up weather data
             self?.cityNameLabel.text = "\(data.name), \(data.sys.country)"
@@ -122,7 +124,6 @@ extension WeatherViewController: WeatherViewModelDelegate{
             self?.humidityValueLabel.text = "\(data.main.humidity) %"
             self?.windValueLabel.text = "\(data.wind.speed) m/s"
             self?.windDirectionLabel.text = weatherModel.windDirection
-            self?.visibilityValue.text = "\(weatherModel.visibilityDistance) km"
             
         }
         
