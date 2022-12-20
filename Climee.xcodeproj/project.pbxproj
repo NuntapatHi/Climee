@@ -22,6 +22,7 @@
 		87A9A85A291F60660082887A /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9A859291F60660082887A /* APICaller.swift */; };
 		87A9A85D291F61110082887A /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9A85C291F61110082887A /* WeatherViewModel.swift */; };
 		87B6E37328AE3D320084D5B3 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B6E37228AE3D320084D5B3 /* Constant.swift */; };
+		87F8FEA82951684400D9042E /* WeatherForcastTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F8FEA72951684400D9042E /* WeatherForcastTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		87A9A859291F60660082887A /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
 		87A9A85C291F61110082887A /* WeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
 		87B6E37228AE3D320084D5B3 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		87F8FEA72951684400D9042E /* WeatherForcastTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherForcastTableViewController.swift; sourceTree = "<group>"; };
 		8E0E771F2C9A98EA695C5A6E /* Pods_Climee.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Climee.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBF3A72E4B9B1ED3566002D1 /* Pods-Climee.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Climee.debug.xcconfig"; path = "Target Support Files/Pods-Climee/Pods-Climee.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -140,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				879A850628AB8043003957A9 /* WeatherViewController.swift */,
+				87F8FEA72951684400D9042E /* WeatherForcastTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -293,6 +296,7 @@
 				878FB5ED28B4C52E00ECE544 /* AirPollutionModel.swift in Sources */,
 				87B6E37328AE3D320084D5B3 /* Constant.swift in Sources */,
 				8793A89128BB390B00FBA5E0 /* Extensions.swift in Sources */,
+				87F8FEA82951684400D9042E /* WeatherForcastTableViewController.swift in Sources */,
 				879A852028ABE83B003957A9 /* WeatherModel.swift in Sources */,
 				87A9A85A291F60660082887A /* APICaller.swift in Sources */,
 				879A850528AB8043003957A9 /* SceneDelegate.swift in Sources */,
