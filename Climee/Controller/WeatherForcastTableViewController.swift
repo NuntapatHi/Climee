@@ -6,54 +6,65 @@
 //
 
 import UIKit
+import Kingfisher
 
-class WeatherForcastTableViewController: UITableViewController {
-
+class WeatherForcastTableViewController: UITableViewController{
+    
+    private let viewModel = WeatherForcastViewModel()
+    var weatherData: WeatherData?{
+        didSet{
+            guard let cityName = weatherData?.name else {
+                print("Could not found city name.")
+                return
+            }
+            print(cityName)
+            viewModel.weatherForcastFetch(cityName: cityName)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        viewModel.delegate = self
     }
-
-    // MARK: - Table view data source
-
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        #warning Incomplete implementation, return the number of sections
-//        return 0
-//    }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return viewModel.weatherForcastData?.list.count ?? 1
     }
-
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: K.forcastCell, for: indexPath) as? ForcastTableViewCell,
+                let data = viewModel.weatherForcastData?.list[indexPath.row]
+        else {
+            let cell = UITableViewCell()
+            cell.backgroundColor = .white
+            cell.textLabel?.text = "No data forcast."
+            return cell
+        }
+        
+        let dateAndTime = data.dt_txt.components(separatedBy: " ")
+        
+        cell.conditionImageView.kf.setImage(with: URL(string: "\(K.weatherImgURL)\(data.weather[0].icon)@2x.png"), options: [.transition(.fade(1))])
+        cell.dateLabel.text = viewModel.dateFormat(formatType: .date, dateAndTime[0])
+        cell.timeLabel.text = viewModel.dateFormat(formatType: .time, dateAndTime[1])
+        cell.temperatureLabel.text = "\(data.main.temp)°C"
+        cell.humidityLabel.text = "\(data.main.humidity)%"
+        cell.cloudinessLabel.text = "\(data.clouds.all)%"
+        cell.descriptionLabel.text = data.weather[0].description.capitalizingFirstLetter()
         return cell
+        
     }
-    */
+}
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+extension WeatherForcastTableViewController: WeatherForcastDelegate{
+
+    func didUpdateWithForcastData() {
+        DispatchQueue.main.async { [weak self] in
+            self?.tableView.reloadData()
+        }
     }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    func didUpdateWithError(_ error: Error) {
+        print("Something go wrong : \(error) -> \(error.localizedDescription)")
     }
-    */
-
 }

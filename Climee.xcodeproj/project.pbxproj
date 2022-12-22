@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		302B28B941C7C07239F71C40 /* Pods_Climee.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E0E771F2C9A98EA695C5A6E /* Pods_Climee.framework */; };
+		8769E81C2951A9AD00005063 /* WeatherForcastViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8769E81B2951A9AD00005063 /* WeatherForcastViewModel.swift */; };
+		8769E81E2951ADA700005063 /* WeatherForcastData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8769E81D2951ADA700005063 /* WeatherForcastData.swift */; };
+		8769E8202951F7FC00005063 /* ForcastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8769E81F2951F7FC00005063 /* ForcastTableViewCell.swift */; };
 		878FB5EB28B4B90800ECE544 /* AirPollutionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878FB5EA28B4B90800ECE544 /* AirPollutionData.swift */; };
 		878FB5ED28B4C52E00ECE544 /* AirPollutionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878FB5EC28B4C52E00ECE544 /* AirPollutionModel.swift */; };
 		8793A89128BB390B00FBA5E0 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8793A89028BB390B00FBA5E0 /* Extensions.swift */; };
@@ -27,6 +30,9 @@
 
 /* Begin PBXFileReference section */
 		53C92F2C3938931ACB8BCCA6 /* Pods-Climee.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Climee.release.xcconfig"; path = "Target Support Files/Pods-Climee/Pods-Climee.release.xcconfig"; sourceTree = "<group>"; };
+		8769E81B2951A9AD00005063 /* WeatherForcastViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherForcastViewModel.swift; sourceTree = "<group>"; };
+		8769E81D2951ADA700005063 /* WeatherForcastData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherForcastData.swift; sourceTree = "<group>"; };
+		8769E81F2951F7FC00005063 /* ForcastTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForcastTableViewCell.swift; sourceTree = "<group>"; };
 		878FB5EA28B4B90800ECE544 /* AirPollutionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirPollutionData.swift; sourceTree = "<group>"; };
 		878FB5EC28B4C52E00ECE544 /* AirPollutionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirPollutionModel.swift; sourceTree = "<group>"; };
 		8793A89028BB390B00FBA5E0 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -81,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				8793A89028BB390B00FBA5E0 /* Extensions.swift */,
+				8769E81F2951F7FC00005063 /* ForcastTableViewCell.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -106,8 +113,8 @@
 		879A850128AB8043003957A9 /* Climee */ = {
 			isa = PBXGroup;
 			children = (
-				87A9A85B291F60F60082887A /* ViewModel */,
 				879A851828AB80B5003957A9 /* Controller */,
+				87A9A85B291F60F60082887A /* ViewModel */,
 				879A851628AB809C003957A9 /* Model */,
 				879A851728AB80A5003957A9 /* View */,
 				87A9A858291F603F0082887A /* APIService */,
@@ -125,6 +132,7 @@
 				879A851F28ABE83B003957A9 /* WeatherModel.swift */,
 				878FB5EA28B4B90800ECE544 /* AirPollutionData.swift */,
 				878FB5EC28B4C52E00ECE544 /* AirPollutionModel.swift */,
+				8769E81D2951ADA700005063 /* WeatherForcastData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -159,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				87A9A85C291F61110082887A /* WeatherViewModel.swift */,
+				8769E81B2951A9AD00005063 /* WeatherForcastViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -290,14 +299,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				879A850728AB8043003957A9 /* WeatherViewController.swift in Sources */,
+				8769E81E2951ADA700005063 /* WeatherForcastData.swift in Sources */,
 				87A9A85D291F61110082887A /* WeatherViewModel.swift in Sources */,
 				879A851E28ABDBE4003957A9 /* WeatherData.swift in Sources */,
+				8769E81C2951A9AD00005063 /* WeatherForcastViewModel.swift in Sources */,
 				879A850328AB8043003957A9 /* AppDelegate.swift in Sources */,
 				878FB5ED28B4C52E00ECE544 /* AirPollutionModel.swift in Sources */,
 				87B6E37328AE3D320084D5B3 /* Constant.swift in Sources */,
 				8793A89128BB390B00FBA5E0 /* Extensions.swift in Sources */,
 				87F8FEA82951684400D9042E /* WeatherForcastTableViewController.swift in Sources */,
 				879A852028ABE83B003957A9 /* WeatherModel.swift in Sources */,
+				8769E8202951F7FC00005063 /* ForcastTableViewCell.swift in Sources */,
 				87A9A85A291F60660082887A /* APICaller.swift in Sources */,
 				879A850528AB8043003957A9 /* SceneDelegate.swift in Sources */,
 				878FB5EB28B4B90800ECE544 /* AirPollutionData.swift in Sources */,

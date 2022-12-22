@@ -36,26 +36,73 @@ class WeatherViewController: UIViewController{
     @IBOutlet weak var pmLabel: UILabel!
     @IBOutlet weak var indexAQILabel: UILabel!
     @IBOutlet weak var descriptionAQILabel: UILabel!
+    @IBOutlet weak var moreInfoButton: UIButton!
     
-    private var locationManager = CLLocationManager()
-    private var viewModel = WeatherViewModel()
+    private let locationManager = CLLocationManager()
+    private let viewModel = WeatherViewModel()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.requestLocation()
+        
+        setNavigationBarController(true, animated)
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUp()
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        setNavigationBarController(false, animated)
+        
     }
     
     private func setUp(){
         viewModel.delegate = self
         searchBar.delegate = self
+        
         locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.requestLocation()
+        
+        moreInfoButton.isEnabled = false
         self.dismissKeybaordWhenTouchAround()
+        
+    }
+    
+    private func setNavigationBarController(_ hidden: Bool, _ animated: Bool){
+        guard let navBarController = navigationController else {
+            print("Could not found navigationController.")
+            return
+        }
+        
+        navBarController.setNavigationBarHidden(hidden, animated: animated)
+        
+    }
+    
+    
+    @IBAction func moreInfoPressed(_ sender: UIButton) {
+        performSegue(withIdentifier: K.weatherToForcastIndentifier, sender: self)
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        guard let destinationVC = segue.destination as? WeatherForcastTableViewController else {
+            print("Could not prepare segue.")
+            return
+        }
+        
+        guard let viewModelweatherData = viewModel.weatherData else {
+            print("Could not found weatherData in WeatherViewModel.")
+            return
+        }
+        
+        destinationVC.weatherData = viewModelweatherData
+        
     }
 }
 
@@ -74,8 +121,10 @@ extension WeatherViewController: UISearchBarDelegate{
         }
     }
 }
+
 //MARK: - CLLocationManagerDelegate
 extension WeatherViewController: CLLocationManagerDelegate{
+    
     @IBAction func locationButtonPressed(_ sender: UIButton) {
         locationManager.requestLocation()
     }
@@ -83,6 +132,7 @@ extension WeatherViewController: CLLocationManagerDelegate{
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         manager.requestLocation()
     }
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last{
             let lat = location.coordinate.latitude
@@ -90,10 +140,12 @@ extension WeatherViewController: CLLocationManagerDelegate{
             viewModel.weatherFatch(lat: lat, lon: lon)
         }
     }
+    
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("Something go wrong : \(error) -> \(error.localizedDescription)")
     }
 }
+
 //MARK: - WeatherManagerDelegates
 extension WeatherViewController: WeatherViewModelDelegate{
     func didUpdateWithWeatherData(data: WeatherData) {
@@ -141,12 +193,13 @@ extension WeatherViewController: WeatherViewModelDelegate{
             self?.indexAQILabel.text = airPollutionModel.statusAQI[1]
             self?.descriptionAQILabel.text = airPollutionModel.statusAQI[2]
             self?.ImgAQIImageView.backgroundColor = UIColor(named: airPollutionModel.statusAQI[3])
-            
+            self?.moreInfoButton.isEnabled = true
         }
     }
     
     func didUpdateWithError(error: Error) {
         print("Something go wrong : \(error) -> \(error.localizedDescription)")
+        moreInfoButton.isEnabled = false
     }
     
 }
