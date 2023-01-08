@@ -6,6 +6,7 @@
 //
 
 import Foundation
+
 enum formatType{
     case date
     case time
@@ -15,6 +16,7 @@ protocol WeatherForcastDelegate{
     func didUpdateWithForcastData()
     func didUpdateWithError(_ error: Error)
 }
+
 class WeatherForcastViewModel{
     
     var weatherForcastData: WeatherForcastData?

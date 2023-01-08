@@ -102,7 +102,6 @@ class WeatherViewController: UIViewController{
         }
         
         destinationVC.weatherData = viewModelweatherData
-        
     }
 }
 
@@ -199,7 +198,9 @@ extension WeatherViewController: WeatherViewModelDelegate{
     
     func didUpdateWithError(error: Error) {
         print("Something go wrong : \(error) -> \(error.localizedDescription)")
-        moreInfoButton.isEnabled = false
+        DispatchQueue.main.async { [weak self] in
+            self?.moreInfoButton.isEnabled = false
+        }
     }
     
 }
